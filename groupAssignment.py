@@ -11,33 +11,53 @@ class shoppingCart:
         return 0
 
 class student:
+    def viewSchedule():
+        return 0
     def enrollClass():
         return 0
     def dropClass():
         return 0
+    def search():
+        return 0
 class classCourse:
-    def courseNum():
+    def getCourseNum():
         return 0
-    def courseName():
+    def setCourseNum():
         return 0
-    def courseRequirements():
+    def getCourseName():
+        return 0
+    def setCourseName():
+        return 0
+    def getCourseRequirements():
+        return 0
+    def setCourseRequirements():
         return 0
 class courseSection:
-    def courseID():
+    def getCourseID():
         return 0
-    def capacity():
+    def setCourseID():
         return 0
-    def courseTime():
+    def getCapacity():
         return 0
-    def professorID():
+    def setCapacity():
         return 0
-    def courseRoom():
+    def getCourseTime():
+        return 0
+    def setCourseTime():
+        return 0
+    def getProfessorID():
+        return 0
+    def setProfessorID():
+        return 0
+    def getCourseRoom():
+        return 0
+    def setCourseRoom():
         return 0
 class courseEnrollment:
-    def grades():
+    def getGrades():
         return 0
-    def studentID():
+    def getStudentID():
         return 0
-    def courseSectionID():
+    def getCourseSectionID():
         return 0
 
