@@ -11,6 +11,7 @@ class shoppingCart:
         return 0
 
 class student:
+    
     def viewSchedule():
         return 0
     def enrollClass():
@@ -19,7 +20,10 @@ class student:
         return 0
     def search():
         return 0
+    
+    
 class classCourse:
+    
     def getCourseNum():
         return 0
     def setCourseNum():
@@ -32,7 +36,9 @@ class classCourse:
         return 0
     def setCourseRequirements():
         return 0
+    
 class courseSection:
+    
     def getCourseID():
         return 0
     def setCourseID():
@@ -53,7 +59,9 @@ class courseSection:
         return 0
     def setCourseRoom():
         return 0
+    
 class courseEnrollment:
+    
     def getGrades():
         return 0
     def getStudentID():
