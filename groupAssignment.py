@@ -84,5 +84,16 @@ class Professor:
         return 0
     def getProfessorSection():
         return 0
+    
+    
+class Admin:
+    def getAdminId(adminID):
+        return 0
+    def viewSchedule(adminID):
+        return 0
+    def courseSection(adminID):
+        return 0
+    def search(adminID):
+        return 0
 
     
