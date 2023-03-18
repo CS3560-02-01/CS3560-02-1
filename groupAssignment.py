@@ -56,6 +56,15 @@ class courseSection:
         return 0
     def setCourseRoom():
         return 0
+    def addStudent():
+        return 0
+    def removeStudent():
+        return 0
+    def addStudentToWaitlist():
+        return 0
+    def removeStudentFromWaitlist():
+        return 0
+    
     
 class courseEnrollment:
     
@@ -70,6 +79,10 @@ class Professor:
     def getProfessor(courseID):
         return 0
     def getProfessorID():
+        return 0
+    def getProfessorDetails():
+        return 0
+    def getProfessorSection():
         return 0
 
     
