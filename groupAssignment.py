@@ -3,7 +3,7 @@ class shoppingCart:
     def addClass(classID):
         return 0
 
-    #remove class from shopping cart
+#remove class from shopping cart
     def removeClass(classID):
         return 0
 
@@ -66,4 +66,10 @@ class courseEnrollment:
     def getCourseSectionID():
         return 0
     
+class Professor:
+    def getProfessor(courseID):
+        return 0
+    def getProfessorID():
+        return 0
+
     
