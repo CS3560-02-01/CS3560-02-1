@@ -1,40 +1,37 @@
-#test
-#test2
-
 #add class to shopping cart
 class shoppingCart:
-    def addClass():
+    def addClass(classID):
         return 0
 
     #remove class from shopping cart
-    def removeClass():
+    def removeClass(classID):
         return 0
 
 class student:
     
-    def viewSchedule():
+    def viewSchedule(studentID):
         return 0
-    def enrollClass():
+    def enrollClass(studentID):
         return 0
-    def dropClass():
+    def dropClass(studentID):
         return 0
-    def search():
+    def search(studentID):
         return 0
     
     
 class classCourse:
     
-    def getCourseNum():
+    def getCourseNum(courseID,studentID):
         return 0
-    def setCourseNum():
+    def setCourseNum(courseID,studentID):
         return 0
-    def getCourseName():
+    def getCourseName(courseID,studentID):
         return 0
-    def setCourseName():
+    def setCourseName(courseID,studentID):
         return 0
-    def getCourseRequirements():
+    def getCourseRequirements(courseID,studentID):
         return 0
-    def setCourseRequirements():
+    def setCourseRequirements(courseID,studentID):
         return 0
     
 class courseSection:
