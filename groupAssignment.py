@@ -6,29 +6,34 @@ class shoppingCart:
 #remove class from shopping cart
     def removeClass(classID):
         return 0
-
+# class for student
 class student:
-    
+    # returns classes student is enrolled in, their descriptions, and professors
     def viewSchedule(studentID):
         return 0
+    # enroll in all classes in student's shopping cart
     def enrollClass(studentID):
         return 0
+    # drop class that student enrolled in
     def dropClass(studentID):
         return 0
-    def search(studentID):
+    # search for classes
+    def search(classID):
         return 0
     
     
 class classCourse:
-    
+    # gets/sets course number for a course
     def getCourseNum(courseID,studentID):
         return 0
     def setCourseNum(courseID,studentID):
         return 0
+    # gets/sets course name for a course
     def getCourseName(courseID,studentID):
         return 0
     def setCourseName(courseID,studentID):
         return 0
+    # gets/sets course requirements 
     def getCourseRequirements(courseID,studentID):
         return 0
     def setCourseRequirements(courseID,studentID):
@@ -76,10 +81,13 @@ class courseEnrollment:
         return 0
     
 class Professor:
+    # return professor name for a specific course
     def getProfessor(courseID):
         return 0
+    # return professor ID for a specific professor
     def getProfessorID():
         return 0
+    
     def getProfessorDetails():
         return 0
     def getProfessorSection():
