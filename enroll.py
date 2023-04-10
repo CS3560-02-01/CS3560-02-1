@@ -11,6 +11,7 @@ center_label.grid(row=1, column=0)
 imgfile = "Images/cppplogo.png"
 image = PhotoImage(file = imgfile)
 image = image.subsample(2)
+image = image.zoom(2,2)
 imageLabel = Label(loginScreen, image=image)
 
 imageLabel.grid(row = 0, column=0, columnspan=2, padx=10, pady=10)
