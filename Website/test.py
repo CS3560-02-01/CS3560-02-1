@@ -10,5 +10,17 @@ def index():
 def second_page():
     return render_template('second_page.html')
 
+@app.route('/third')
+def third():
+    return render_template('third.html')
+
+@app.route('/fourth')
+def fourth():
+    return render_template('fourth.html')
+
+@app.route('/fifth')
+def fifth():
+    return render_template('fifth.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
