@@ -20,13 +20,14 @@
           <div class= "button-properties">
 
 
-
+<!--  this button using the function is the first button on the screen used to open up the modal-->
             <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
             <div id="id01" class="modal">
-              
+<!--  this form is suppose to switch to page 2 after the button is pressed to login on line 42-->
               <form class="modal-content animate" action="/second_page" method="post">
                 <div class="img-container">
+<!--   this line using the function is used to get out of the modal-->
                   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                   <img src="images/newbilly.png" alt="Avatar" class="avatar">
                 </div>
@@ -43,6 +44,7 @@
                 </div>
 
                 <div class="container2" style="background-color:#343232">
+<!--   this button using the function is used to get out of the modal-->
                   <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                   
                 </div>
