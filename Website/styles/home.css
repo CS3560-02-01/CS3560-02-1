@@ -1,0 +1,133 @@
+body{
+    background-color: rgb(223, 219, 219);
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    padding: 3%;
+    
+}
+
+/* header css */
+.header-layer{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 10%;
+    position: fixed;
+    justify-content: space-between;
+    border-bottom-width: 3px;
+    border-bottom-width: solid;
+    border-bottom-color: black;
+    align-items: center;
+    object-position: center;
+}
+.image{
+    width: 50%;
+    height: auto;
+}
+.left-head{
+     flex: 1;
+     
+}
+.middle-head{
+   
+    flex: 1;
+    object-fit: contain;
+    padding-left: 13%;
+    align-items: center;
+    display: flex;
+    /* margin-left: 2%;
+    margin-right: 10%; */
+    max-width: 400px;
+    
+   
+
+}
+.right-head{
+    
+    flex: 1;
+     object-fit: contain;
+     left: 0;
+     align-items: center;
+     display: flex;
+     justify-content:left;
+     max-width: 400px;
+     height: auto;
+
+     
+}
+.button-design{
+    background-color: #3a3f3e;
+    color: white;
+    padding: 14px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+
+}
+.button-design:hover{
+    opacity: 0.8;
+}
+.text-titles{
+    display: inline-block;
+    position: relative;
+    margin-right: 35px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.text-titles:after{
+    content: '';
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: rgba(0,0,0,0.829);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-in;
+
+}
+.text-titles:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    cursor: pointer;
+}
+.name-class{
+    margin-left: 50px;
+    font-family: 'Fugaz One', cursive;
+
+   
+}
+
+
+/* body css */
+.body-layer{
+   
+    background-color: white;
+    flex: 1;
+    /*
+    background-color: aqua;
+    width: 100%;
+    height: auto; */
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 3px solid #afaeae;
+   /* padding: 200px; */
+    width: 900px;
+    
+    height: 600px;
+    margin: 0px;
+    align-items: center;
+    align-items: center;
+}
+.body-layer{
+  
+}
