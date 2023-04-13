@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+
+}
+
+body{
+    background-color: lightslategray;
+}
+.enrolled{
+    flex: 1;
+    background-color: lightsteelblue;
+    padding-bottom: 23.5%;
+    margin-top: 45vh;
+}
+.table,th,td{
+    border: 1.5px solid;
+    margin-left: auto;
+    margin-right: auto;
+}
