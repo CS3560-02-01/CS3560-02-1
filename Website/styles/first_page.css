@@ -1,5 +1,6 @@
 body{
-    background-color: lightslategray;
+   
+    background-color: #1f1d1d;
 }
 .container {
     /* background-color: rgb(196, 196, 196); */
@@ -7,13 +8,12 @@ body{
     align-items: center;
     object-position: center;
     padding: 15%;
-    
 }
 .middle_box{
     width: 100%;
     height: 50vh;
     flex: 1;
-    background-color: rgb(85, 93, 136);
+    background-color: rgb(132, 137, 142);
     padding: 15%;
     align-items: center;
     object-position: center;
@@ -23,4 +23,29 @@ body{
     border-radius: 20%;
     
 
+
+}
+.image-setting{
+    flex:1;
+    padding: 6%;
+
+    margin-left: 5%;
+}
+.Image{
+    border-radius: 2%;
+}
+.title-name{
+    
+    flex: 1;
+    padding-left: 14%;
+    font-size: 100%;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.button-properties{
+    flex: 1;
+    padding: 5%;
+    padding-left: 45%;
+    object-position: center;
+    align-items: center;
 }
