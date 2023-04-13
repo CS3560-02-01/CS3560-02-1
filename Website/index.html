@@ -3,21 +3,62 @@
   <head>
     <title>CPP Enrollment</title>
      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1" >
       
     <link rel ="stylesheet" href = "styles/first_page.css">
+    <link rel = "stylesheet" href = "styles/first_page2.css">
   </head>
   <body>
     <div class = "container">
         <div class = "middle_box">
-          <h1>First Page</h1>
-          <form action="login_page.php" method="post"></form>
-          <form action="/second_page">
-            <button class = "login_button" type="submit">Login</button>
-          </form>
+          <div class="image-setting">
+            <img class = "Image" src="Images/cppplogo.png"> 
+          </div>
+          <div class="title-name">
+            <h1>Cal Poly Pomona Enrollment</h1>
+          </div>
+          <div class= "button-properties">
+
+
+
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+            <div id="id01" class="modal">
+              
+              <form class="modal-content animate" action="/second_page" method="post">
+                <div class="img-container">
+                  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  <img src="images/newbilly.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container2">
+                  <label for="uname"><b>Username</b></label>
+                  <input type="text" placeholder="Enter Username" name="uname" required>
+
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name="psw" required>
+                    
+                  <button type="submit">Login</button>
+                  
+                </div>
+
+                <div class="container2" style="background-color:#343232">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                  
+                </div>
+                
+              </form>
+            </div>
+                
+              
+              
+          </div> 
+          
         </div>
+       
     </div>
-    
+ 
     
   </body>
 </html>
+
