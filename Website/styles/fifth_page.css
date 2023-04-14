@@ -9,7 +9,6 @@
 }
 
 .banner{
-   
     flex: 1;
     padding-left: 35%;
     align-items: center;
@@ -18,17 +17,15 @@
 }
 
 
-
-
 body{
-    background-color: rgba(255, 253, 253, 0.932);
+    background-color: rgb(255, 253, 253, 0.932);
 }
 .enrolled{
     flex: 1;
     background-color: rgb(242, 247, 255);
     padding-bottom: 23.5%;
     margin-top: 45vh;
-    align-items: center;
+    padding-left: 150px;
 }
 .table,th,td{
     border: 1.5px solid;
