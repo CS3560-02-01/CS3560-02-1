@@ -3,17 +3,51 @@
 
 }
 
+.image{
+    width: 50%;
+    height: auto;
+}
+
+.banner{
+   
+    flex: 1;
+    padding-left: 35%;
+    align-items: center;
+    display: flex;
+    max-width: 600px;
+}
+
+
+
+
 body{
-    background-color: lightslategray;
+    background-color: rgba(255, 253, 253, 0.932);
 }
 .enrolled{
     flex: 1;
-    background-color: lightsteelblue;
+    background-color: rgb(242, 247, 255);
     padding-bottom: 23.5%;
     margin-top: 45vh;
+    align-items: center;
 }
 .table,th,td{
     border: 1.5px solid;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+}
+
+table{
+    position: absolute;
+    z-index: 1;
+
+}
+th,td{
+    padding: 10px;
+}
+
+tr:nth-child(odd){
+    background-color: #ddd;
+}
+
+tr:nth-child(even){
+    background-color: #fff;
 }
