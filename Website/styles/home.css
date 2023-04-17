@@ -80,6 +80,7 @@ body{
     margin-right: 35px;
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
 .text-titles:after{
     content: '';
