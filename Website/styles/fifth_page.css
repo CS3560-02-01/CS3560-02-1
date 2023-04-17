@@ -1,5 +1,6 @@
-.container{
+.container2{
     display: flex;
+    padding: 3%;
 
 }
 
@@ -8,13 +9,6 @@
     height: auto;
 }
 
-.banner{
-    flex: 1;
-    padding-left: 35%;
-    align-items: center;
-    display: flex;
-    max-width: 600px;
-}
 
 
 body{
