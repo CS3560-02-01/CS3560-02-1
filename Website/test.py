@@ -6,17 +6,17 @@ app = Flask(__name__, template_folder='templates') #added template_folder
 def index():
     return render_template('index.html')
 
-@app.route('/second_page')
+@app.route('/home')
 def second_page():
-    return render_template('second_page.html') #no second html
+    return render_template('home.html') 
 
-@app.route('/third')
+@app.route('/search')
 def third():
-    return render_template('third.html') #no third html 
+    return render_template('search.html') 
 
-@app.route('/fourth')
+@app.route('/search_results')
 def fourth():
-    return render_template('fourth.html') #no fourth html
+    return render_template('searchresults.html') 
 
 @app.route('/fifth')
 def fifth():
