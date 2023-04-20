@@ -8,15 +8,15 @@ def index():
 
 @app.route('/second_page')
 def second_page():
-    return render_template('second_page.html')
+    return render_template('second_page.html') #no second html
 
 @app.route('/third')
 def third():
-    return render_template('third.html')
+    return render_template('third.html') #no third html 
 
 @app.route('/fourth')
 def fourth():
-    return render_template('fourth.html')
+    return render_template('fourth.html') #no fourth html
 
 @app.route('/fifth')
 def fifth():
