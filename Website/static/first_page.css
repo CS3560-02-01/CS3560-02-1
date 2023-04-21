@@ -1,24 +1,32 @@
-body{
-   
-    background-color: #1f1d1d;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(../static/Images/cpp.png);
+    background-size: cover;
+    background-position: center;
+}
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;  
+}
+
+
 .container {
-    /* background-color: rgb(196, 196, 196); */
     display: flex;
     align-items: center;
     object-position: center;
     padding: 15%;
 }
-.middle_box{
-    width: 100%;
-    height: 50vh;
-    flex: 1;
-    background-color: rgb(132, 137, 142);
-    padding: 15%;
-    align-items: center;
-    object-position: center;
-    
-}
+
 .login_button{
     border-radius: 20%;
     
@@ -28,18 +36,20 @@ body{
 .image-setting{
     flex:1;
     padding: 6%;
-
     margin-left: 5%;
 }
 .Image{
     border-radius: 2%;
+    height: auto;
+    width: 200%;
 }
 .title-name{
     
     flex: 1;
-    padding-left: 14%;
-    font-size: 100%;
+    padding-left: 10%;
+    font-size: 90%;
     font-family: 'Courier New', Courier, monospace;
+    color: #fff;
 
 }
 .button-properties{
