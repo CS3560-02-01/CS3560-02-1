@@ -117,6 +117,11 @@ class Database():
         values = (student_id, section_id)
         self.mycursor.execute(sql, values)
         self.mydb.commit()
+        
+    #close connection to database
+    def __del__(self):
+        self.mycursor.close()
+        self.mydb.close()
 
     #examples of each method being called:
     
@@ -148,9 +153,7 @@ class Database():
     #drop course
     #drop_course(1, 1)
 
-    def __del__(self):
-        self.mycursor.close()
-        self.mydb.close()
+
 
 
 
