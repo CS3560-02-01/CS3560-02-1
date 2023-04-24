@@ -117,6 +117,17 @@ class Database():
         values = (student_id, section_id)
         self.mycursor.execute(sql, values)
         self.mydb.commit()
+    def login(username, password):
+        sql = "SELECT * FROM student WHERE username = %s AND password = %s"
+        values = (username, password)
+        mycursor.execute(sql, values)
+        result = mycursor.fetchone()
+        if result:
+        # user is authenticated, return user's id
+            return result[0]
+        else:
+        # user is not authenticated, return None
+            return None
         
     #close connection to database
     def __del__(self):
@@ -152,6 +163,9 @@ class Database():
 
     #drop course
     #drop_course(1, 1)
+    
+    #login returns ID if login correct, if login incorrect, return NONE
+    #print(login('jp', 'passwor1d'))
 
 
 
