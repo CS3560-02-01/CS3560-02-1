@@ -28,7 +28,7 @@
 
             <div id="id01" class="modal">
 <!--  this form is suppose to switch to page 2 after the button is pressed to login on line 42-->
-              <form class="modal-content animate" action="home.html" method="post">
+              <form class="modal-content animate" action="{{ url_for('index') }}" method="POST">
                 <div class="img-container">
 <!--   this line using the function is used to get out of the modal-->
                   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -37,10 +37,10 @@
 
                 <div class="container2">
                   <label for="uname"><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" name="uname" required>
+                  <input type="text" placeholder="Enter Username" name="username" required>
 
                   <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
+                  <input type="password" placeholder="Enter Password" name="password" required>
                     
                   <button type="submit">Login</button>
                   
@@ -59,7 +59,7 @@
 
             <div id="id02" class="modal">
               <!--  this form is suppose to switch to page 2 after the button is pressed to login on line 42-->
-                            <form class="modal-content animate" action="home.html" method="post">
+                            <form class="modal-content animate" action="home.html" method="POST">
                               <div class="img-container">
               <!--   this line using the function is used to get out of the modal-->
                                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -74,13 +74,13 @@
                                 <label for="uname"><b>Last Name</b></label>
                                 <input type="text" placeholder="Enter Last Name" name="uname" required>
 
-                                <label for="uname"><b>Username</b></label>
+                                <label for="uname"><b>Email</b></label>
                                 <input type="text" placeholder="Enter Username" name="uname" required>
               
-                                <label for="uname"><b>Email</b></label>
-                                <input type="text" placeholder="Enter Email" name="uname" required>
-
                                 <label for="psw"><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                                <label for="psw"><b>Confirm Password</b></label>
                                 <input type="password" placeholder="Enter Password" name="psw" required>
                                   
                                 <button type="submit">Sign-up</button>

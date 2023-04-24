@@ -18,18 +18,17 @@
             <img class = "image" src="../static/Images/cpplogolight.jpg">
           </div>
           <div class =  "right-head">
-            <form>
+            <form action="{{ url_for('home') }}" method="POST">
               <span onclick="window.location.href = 'home.html';" class = "text-titles">Home</span>
             </form>
-            <form>
+            <form action="{{ url_for('search') }}" method="POST">
               <span onclick="window.location.href = 'search.html';" class = "text-titles">Search</span>
             </form>
-            <form>
+            <form action="{{ url_for('fifth') }}" method="POST">
               <span onclick="window.location.href = 'fifth.html';" class = "text-titles">Enroll</span>
-            </form>
+            </form >
             <button onclick = "window.location.href = 'index.html';" class = "button-design" type="submit">LOGOUT</button>
           </div>
-
         </div>
       </div>
       <div class = "container">
