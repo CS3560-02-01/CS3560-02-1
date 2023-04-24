@@ -1,40 +1,40 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-from database import Database
+from database import logint
 from werkzeug.security import check_password_hash
 from flask_login import login_user, logout_user, current_user, login_required
 
 app = Flask(__name__, template_folder='templates') #added template_folder
 
-@app.route('/', methods =['GET', 'POST'])
-def index():
+# @app.route('/', methods =['GET', 'POST'])
+# def index():
 
-    if request.method == 'POST':
-        # handle form submission
-        username = request.form['username']
-        password = request.form['password']
-        # do something with username and password
-        return render_template('home.html')
-    else:
-        return render_template('index.html', boolean=True)
-
-
-# @app.route('/login', methods =['GET', 'POST'])
-# def login():
 #     if request.method == 'POST':
-#         email = request.form.get('username')
-#         password = request.form.get('password')
+#         # handle form submission
+#         username = request.form['username']
+#         password = request.form['password']
+#         # do something with username and password
+#         return render_template('home.html')
+#     else:
+#         return render_template('index.html', boolean=True)
 
-#         user = Database.query.filter_by(username = username)
-#         if user:
-#             if check_password_hash(user.password, password):
-#                 flash('Login in successfully' ,category='success')
-#                 login_user(user, remember = True)
-#                 return redirect(url_for('views.home'))
-#             else: 
-#                 flash('Incorrect password, try again.', category='error')
-#         else:
-#             flash('Email does not exist.', category='error')
-#     return render_template("index.html", boolean = True)
+
+@app.route('/', methods =['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        user = logint(username, password)
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Login in successfully' ,category='success')
+                login_user(user, remember = True)
+                return render_template("home.html")
+            else: 
+                flash('Incorrect password, try again.', category='error')
+        else:
+            flash('Email does not exist.', category='error')
+    return render_template("index.html", boolean = True)
 # @app.route('/logout', methods =['GET', 'POST'])
 # @login_required
 # def logout():
