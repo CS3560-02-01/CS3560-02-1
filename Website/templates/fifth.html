@@ -1,77 +1,123 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <title>Enrolled Classes</title>
-     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <link rel="stylesheet" href="../static/home.css">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../static/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel ="stylesheet" href = "../static/fifth_page.css">
   </head>
   <body>
-    <!-- <div class = "banner">
-      <img class = "image" src="Images/cpp-logo-light.jpg">
-  </div> -->
-  <div class = "container">
-    <div class = "header-layer">
-      <div class = "left-head">
-        <h class = "name-class">(Your Name)</h>
-      </div>
-      <div class = "middle-head">
-        <img class = "image" src="../static/Images/cpplogolight.jpg">
-      </div>
-      <div class =  "right-head">
-        <!-- <form action="{{ url_for('home') }}" method="POST">
-          <span onclick="window.location.href = 'home.html';" class = "text-titles">Home</span>
-        </form> -->
-        <form action="{{ url_for('home') }}" method="POST">
-          <span onclick="window.location.href = 'home';" class="text-titles">Home</span>
-        </form>
-        <form action="{{ url_for('search') }}" method="POST">
-          <span onclick="window.location.href = 'search';" class="text-titles">Search</span>
-        </form>
-        
-        <!-- <form action="{{ url_for('search') }}" method="POST">
-          <span onclick="window.location.href = 'search';" class = "text-titles">Search</span>
-        </form> -->
-        <form action="{{ url_for('fifth') }}" method="POST">
-          <span onclick="window.location.href = 'fifth';" class = "text-titles">Enroll</span>
-        </form >
-        <button action = "{{ url_for('logout')}}" method = "POST" onclick = "window.location.href = './';" class = "button-design" type="submit">LOGOUT</button>
-        
+    <div class = "container">
+      <div class = "header-layer">
+        <div class = "left-head">
+          <h class = "name-class">{% if user %}
+            <p>Welcome, {{ user[1] }}!</p>
+          {% else %}
+            <p>Welcome!</p>
+          {% endif %}</h>
+        </div>
+        <div class = "middle-head">
+          <img class = "image" src="../static/Images/cpplogolight.jpg">
+        </div>
+        <div class =  "right-head">
+          <form action="{{ url_for('home') }}" method="POST">
+            <span onclick="window.location.href = 'home';" class="text-titles">Home</span>
+          </form>
+          <form action="{{ url_for('search') }}" method="POST">
+            <span onclick="window.location.href = 'search';" class="text-titles">Search</span>
+          </form>
+          <form action="{{ url_for('fifth') }}" method="POST">
+            <span onclick="window.location.href = 'fifth';" class="text-titles">Enroll</span>
+          </form >
+          <button action="{{ url_for('logout') }}" method="POST" onclick="window.location.href='./';" class="button-design" type="submit">LOGOUT</button>
+        </div>
       </div>
     </div>
-  </div>
-    <div class = "container2">
-      <div class = "box">
-        <h class = "text">Shopping Cart</h>
-      </div>
-      <div class = "seperation">
-      </div>
-        <div class = "box2">
-            <h class = "text2">Enrolled Classes</h>
-            <table style="text-align:center;">
-                <tr>
-                    <th>Class</th>
-                    <th>Meeting Time</th>
-                    <th>Room #</th>
-                    <th>Professor</th>
-                    <th>Units</th>
-                    <th>Enrollment Status</th>
+    <div class="container2">
+      <div class="box">
+          <h class="text">Shopping Cart</h>
+          <div class = "top-one">
+            <div class = "middle-one">
+              <table style="text-align:center;">
+                <tr class="table-home">
+                  <th>Course</th>
+                  <th>Course-Name</th>
+                  <th>Course-Section</th>
+                  <th>Time</th>
+                  <th>Room #</th>
+                  <th>Professor</th>
+                  <th>Units</th>
+                  <th>Enrollment Status</th>
                 </tr>
-                <td>(Class Name)</td>
-                <td>Ex. Mon/Wed 10:00AM - 10:50 AM</td>
-                <td>Ex. Building 1 Room 1</td>
-                <td>Ex. Mr. Professor</td>
-                <td>3 Units</td>
-                <td>(check mark if enrolled)</td>
-            </table>
-            <div>
-              <button class = "button">Enroll</button>
+                {% for result in shopping_cart %}
+                  <tr>
+                    {% for item in result %}
+                      <td>{{ item }}</td>
+                    {% endfor %}
+                    <td>(check mark if enrolled)</td>
+                  </tr>
+                {% endfor %}
+              </table>
+              
             </div>
+            
+          </div>
+          <!-- {% for result in shopping_cart %}
+              {% for item in result %}
+                  {{ item }} 
+              {% endfor %}
+              <br>
+          {% endfor %} -->
+          <form action="{{ url_for('enroll_in_classes') }}" method="POST">
+            <button class="button-design" type="submit">Enroll</button>
+          </form>  
+          <form action="{{ url_for('drop_shoppingcart_class') }}" method="POST">
+            <label for="course_id">Course ID:</label>
+            <input id="course_id" name="course_id" value="{{ course_id }}">
+            <button type="submit" class="text-titles">Drop Shopping Cart Class</button>
+          </form>
         </div>
+          
+      <div class="seperation"></div>
+      <div class="box2">
+        <h class="text2">Enrolled Classes</h>
+        <div class = "top-one">
+          <div class = "middle-one">
+            <table style="text-align:center;">
+              <tr class="table-home">
+                <th>Course</th>
+                <th>Course-Name</th>
+                <th>Course-Section</th>
+                <th>Time</th>
+                <th>Room #</th>
+                <th>Professor</th>
+                <th>Units</th>
+                <th>Enrollment Status</th>
+              </tr>
+              {% for result in enrolled_classes %}
+                <tr>
+                  {% for item in result %}
+                    <td>{{ item }}</td>
+                  {% endfor %}
+                  <td>(check mark if enrolled)</td>
+                </tr>
+              {% endfor %}
+            </table>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
   </body>
+  <script>
+    window.onload = function() {
+      fetch('/shoppingcart')
+    }
+  </script>
 </html>

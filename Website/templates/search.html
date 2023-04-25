@@ -12,7 +12,11 @@
         <div class = "container">
             <div class = "header-layer">
               <div class = "left-head">
-                <h class = "name-class">(Your Name)</h>
+                <h class = "name-class">{% if user %}
+                  <p>Welcome, {{ user[1] }}!</p>
+                  {% else %}
+                      <p>Welcome!</p>
+                  {% endif %}</h>
               </div>
               <div class = "middle-head">
                 <img class = "image" src="../static/Images/cpplogolight.jpg">
@@ -59,7 +63,47 @@
                 <label for="myInput" style="font-weight: bold; color: #555; margin-right: 10px;">Course ID:</label>
                 <input type="text" id="myInput" style="padding: 5px; border-radius: 3px; border: 1px solid #ccc;">
               </div>
-            <div class="filter-text">
+
+
+              <form method="POST" action="{{ url_for('search_classes') }}">
+                <div class="filter-text">
+                  <label for="major" style="font-weight: bold; color: #555; margin-right: 10px;padding-right: 20px;">Major:</label>
+                  <select id="major" name="major">
+                    <option>Select One</option>
+                    <option>Computer Science</option>
+                    <option>Mathematics</option>
+                    <option>Electrical Engineering</option>
+                  </select>
+                </div>
+                <div class="filter-text">
+                  <label for="academic_standing" style="font-weight: bold; color: #555; margin-right: 10px;; padding-right: 20px;">Academic Standing:</label>
+                  <select id="academic_standing" name="academic_standing">
+                    <option>Select One</option>
+                    <option>Freshman</option>
+                    <option>Sophomore</option>
+                    <option>Junior</option>
+                    <option>Senior</option>
+                  </select>
+                </div>
+                <div class="filter-text">
+                  <label for="professor" style="font-weight: bold; color: #555; margin-right: 10px;">Professor:</label>
+                  <input type="text" id="professor" name="professor" style="padding: 5px; border-radius: 3px; border: 1px solid #ccc;">
+                </div>
+                <div class="filter-text">
+                  <label for="instruction_mode" style="font-weight: bold; color: #555; margin-right: 10px;; padding-right: 20px;">Instruction Mode:</label>
+                  <select id="instruction_mode" name="instruction_mode">
+                    <option>Select One</option>
+                    <option>In-Person</option>
+                    <option>Hybrid</option>
+                    <option>Remote Synchronous</option>
+                    <option>Remote Asynchronous</option>
+                  </select>
+                </div>
+                <div>
+                  <button class="soft-button" type="submit">Search</button>
+                </div>
+              </form>
+            <!-- <div class="filter-text">
                 <label for="dropdown-menu" style="font-weight: bold; color: #555; margin-right: 10px;padding-right: 20px;">Major:</label>
                 <select id="dropdown-menu">
                   <option>Select One</option>
@@ -93,7 +137,7 @@
             </div>
             <div>
                 <button class="soft-button">Search</button>
-            </div>
+            </div> -->
 
 
 
@@ -104,4 +148,3 @@
 
 
 </html>
-

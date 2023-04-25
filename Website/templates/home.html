@@ -15,7 +15,7 @@
             <h class = "name-class">{% if user %}
               <p>Welcome, {{ user[1] }}!</p>
               {% else %}
-                  <p>Welcome, guest!</p>
+                  <p>Welcome!</p>
               {% endif %}</h>
           </div>
           <div class = "middle-head">
@@ -46,20 +46,82 @@
       <div class = "container">
         <div class = "body-layer">
           <h class ="body-text">SHOPPING CART</h>
+          <div class = "top-one">
+            <div class = "middle-one">
+              <table style="text-align:center;">
+                <tr class="table-home">
+                  <th>Course</th>
+                  <th>Course-Name</th>
+                  <th>Course-Section</th>
+                  <th>Time</th>
+                  <th>Room #</th>
+                  <th>Professor</th>
+                  <th>Units</th>
+                  <th>Enrollment Status</th>
+                </tr>
+                {% for result in shopping_cart %}
+                  <tr>
+                    {% for item in result %}
+                      <td>{{ item }}</td>
+                    {% endfor %}
+                    <td>(check mark if enrolled)</td>
+                  </tr>
+                {% endfor %}
+              </table>
+              
+            </div>
+            
+          </div>
+          <!-- {% for result in shopping_cart %}
+              {% for item in result %}
+                  {{ item }} 
+              {% endfor %}
+              <br>
+          {% endfor %} -->
         </div>
         <div class = "body-layer2">
           <h class ="body-text">TOOL BAR</h>
-
+          <form action="{{ url_for('drop_class') }}" method="POST">
+            <label for="course_id">Course ID:</label>
+            <input id="course_id" name="course_id" value="{{ course_id }}">
+            <button type="submit" class="text-titles">Drop Class</button>
+          </form>
+          
         </div>
       </div>
       <div class = "container">
         <div class = "body-layer">
           <h class ="body-text">SCHEDULE</h>
+          
+          <div class = "top-one">
+            <div class = "middle-one">
+              <table style="text-align:center;">
+                <tr class="table-home">
+                  <th>Course</th>
+                  <th>Course-Name</th>
+                  <th>Course-Section</th>
+                  <th>Time</th>
+                  <th>Room #</th>
+                  <th>Professor</th>
+                  <th>Units</th>
+                  <th>Enrollment Status</th>
+                </tr>
+                {% for result in enrolled_classes %}
+                  <tr>
+                    {% for item in result %}
+                      <td>{{ item }}</td>
+                    {% endfor %}
+                    <td>(check mark if enrolled)</td>
+                  </tr>
+                {% endfor %}
+              </table>
+              
+            </div>
+            
+          </div>
         </div>
        
       </div>
   </body>
 </html>
-
-
 
