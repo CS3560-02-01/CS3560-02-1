@@ -12,22 +12,34 @@
       <div class = "container">
         <div class = "header-layer">
           <div class = "left-head">
-            <h class = "name-class">(Your Name)</h>
+            <h class = "name-class">{% if user %}
+              <p>Welcome, {{ user[1] }}!</p>
+              {% else %}
+                  <p>Welcome, guest!</p>
+              {% endif %}</h>
           </div>
           <div class = "middle-head">
             <img class = "image" src="../static/Images/cpplogolight.jpg">
           </div>
           <div class =  "right-head">
-            <form action="{{ url_for('home') }}" method="POST">
+            <!-- <form action="{{ url_for('home') }}" method="POST">
               <span onclick="window.location.href = 'home.html';" class = "text-titles">Home</span>
+            </form> -->
+            <form action="{{ url_for('home') }}" method="POST">
+              <span onclick="window.location.href = 'home';" class="text-titles">Home</span>
             </form>
             <form action="{{ url_for('search') }}" method="POST">
-              <span onclick="window.location.href = 'search.html';" class = "text-titles">Search</span>
+              <span onclick="window.location.href = 'search';" class="text-titles">Search</span>
             </form>
+            
+            <!-- <form action="{{ url_for('search') }}" method="POST">
+              <span onclick="window.location.href = 'search';" class = "text-titles">Search</span>
+            </form> -->
             <form action="{{ url_for('fifth') }}" method="POST">
-              <span onclick="window.location.href = 'fifth.html';" class = "text-titles">Enroll</span>
+              <span onclick="window.location.href = 'fifth';" class = "text-titles">Enroll</span>
             </form >
-            <button onclick = "window.location.href = 'index.html';" class = "button-design" type="submit">LOGOUT</button>
+            <button action = "{{ url_for('logout')}}" method = "POST" onclick = "window.location.href = './';" class = "button-design" type="submit">LOGOUT</button>
+            
           </div>
         </div>
       </div>
@@ -48,4 +60,6 @@
       </div>
   </body>
 </html>
+
+
 
