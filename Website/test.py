@@ -1,77 +1,110 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
-from database import logint
-from werkzeug.security import check_password_hash
+from flask import Flask, render_template, request, flash, redirect, url_for, session, g
 from flask_login import login_user, logout_user, current_user, login_required
+import mysql.connector
 
-app = Flask(__name__, template_folder='templates') #added template_folder
+app = Flask(__name__, template_folder='templates')
+app.secret_key = 'somesecretkey'
 
-# @app.route('/', methods =['GET', 'POST'])
-# def index():
+@app.before_request
+def before_request():
+    if 'user_id' in session:
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="project_user",
+            password="password!@#123",
+            database="enrollmentsystem"
+        )
+        mycursor = mydb.cursor()
 
-#     if request.method == 'POST':
-#         # handle form submission
-#         username = request.form['username']
-#         password = request.form['password']
-#         # do something with username and password
-#         return render_template('home.html')
-#     else:
-#         return render_template('index.html', boolean=True)
+        sql = "SELECT * FROM student WHERE studentid = %s"
+        values = (session['user_id'],)
+        mycursor.execute(sql, values)
+        user = mycursor.fetchone()
+        mycursor.close()
+        mydb.close()
 
+        if user:
+            g.user = user
+        else:
+            session.pop('user_id', None)
+            g.user = None
 
 @app.route('/', methods =['GET', 'POST'])
+def index():
+    return render_template('index.html', boolean=True)
+
+@app.route('/login', methods =['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="project_user",
+            password="password!@#123",
+            database="enrollmentsystem"
+        )
+        mycursor = mydb.cursor()
+
         username = request.form.get('username')
         password = request.form.get('password')
 
-        user = logint(username, password)
+        sql = "SELECT * FROM student WHERE username = %s AND password = %s"
+        values = (username, password)
+        mycursor.execute(sql, values)
+        user = mycursor.fetchone()
+
         if user:
-            if check_password_hash(user.password, password):
-                flash('Login in successfully' ,category='success')
-                login_user(user, remember = True)
-                return render_template("home.html")
-            else: 
-                flash('Incorrect password, try again.', category='error')
+            session['user_id'] = user[0]
+            g.user = user
+            return redirect(url_for('home'))   
         else:
-            flash('Email does not exist.', category='error')
-    return render_template("index.html", boolean = True)
-# @app.route('/logout', methods =['GET', 'POST'])
-# @login_required
-# def logout():
-#     logout_user()
-#     return redirect(url_for('app.login'))
+            flash('Invalid username or password', 'error')
 
-            
+        mycursor.close()
+        mydb.close()
 
+    return render_template('index.html')
 
-
-# @app.route('/sign-up', methods =['GET', 'POST'])
-# def sign_up():
-#     if request.method == 'POST':
-#         firstName =request.form.get('firstName')
-#         lastName =request.form.get('lastName')
-#         email =request.form.get('email')
-#         password1 =request.form.get('password')
-#         password2 =request.form.get('password2')
-#         if len(email) < 4:
-#             pass
-#         elif len(firstName)< 2:
-#             pass
-#         elif password1 != password2:
-#             pass
-#         elif len(password1)<7:
-#             pass
-
-@app.route('/', methods = ['GET', 'POST'])
-def home():
-     if request.method == 'POST':
-        return render_template('home.html') 
     
+    # if request.method == 'POST':
+    #     session.pop('user_id', None)
+
+    #     username = request.form.get('username')
+    #     password = request.form.get('password')
+
+    #     user = [x for x in users if x.username == username][0]
+    #     if user and user.password == password:
+    #         session['user_id'] = user.id
+    #         return redirect(url_for('home'))
+        
+    #     return redirect(url_for('login'))
+    
+    # return render_template('index.html')
+
+@app.route('/logout', methods =['GET', 'POST'])
+def logout():
+   return render_template('index.html')
+
+
+@app.route('/home', methods =['GET', 'POST'])
+def home():
+    if request.method == 'POST':
+        return redirect(url_for('home'))
+    return render_template('home.html', user=g.user)
+    #return render_template('home.html') 
+
+
+# @app.route('/search', methods =['GET', 'POST'])
+# def search():
+#     if request.method == 'POST':
+#         return redirect(url_for('search'))
+#         #return render_template('search.html') 
 
 @app.route('/search', methods =['GET', 'POST'])
 def search():
     if request.method == 'POST':
-        return render_template('search.html') 
+        return redirect(url_for('search'))
+    return render_template('search.html')
+
 
 @app.route('/search_results', methods =['GET', 'POST'])
 def search_results():
