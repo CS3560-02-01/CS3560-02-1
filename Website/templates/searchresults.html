@@ -31,28 +31,14 @@
                       <span onclick="window.location.href = 'search';" class="text-titles">Search</span>
                     </form>
                     
-                    <!-- <form action="{{ url_for('search') }}" method="POST">
-                      <span onclick="window.location.href = 'search';" class = "text-titles">Search</span>
-                    </form> -->
-                    <form action="{{ url_for('fifth') }}" method="POST">
-                      <span onclick="window.location.href = 'fifth';" class = "text-titles">Enroll</span>
+   
+                    <form action="{{ url_for('enroll') }}" method="POST">
+                      <span onclick="window.location.href = 'enroll';" class = "text-titles">Enroll</span>
                     </form >
                     <button action = "{{ url_for('logout')}}" method = "POST" onclick = "window.location.href = './';" class = "button-design" type="submit">LOGOUT</button>
                     
     
     
-                    
-                    <!-- <form>
-                      <span onclick="window.location.href = 'home.html';" class = "text-titles">Home</span>
-                    </form>
-                    <form>
-                      <span onclick="window.location.href = 'search.html';" class = "text-titles">Search</span>
-                    </form>
-                    <form>
-                      <span onclick="window.location.href = 'fifth.html';" class = "text-titles">Enroll</span>
-                    </form>
-                    <button onclick = "window.location.href = 'index.html';" class = "button-design" type="submit">LOGOUT</button>
-                  </div> -->
                   
                 </div>
               </div>
@@ -80,13 +66,23 @@
                         {% for item in result %}
                           <td>{{ item }}</td>
                         {% endfor %}
-                        <td>(check mark if enrolled)</td>
+                        <td>{% if result.enrolled %}
+                          &#10004;
+                        {% endif %}</td>
                       </tr>
                     {% endfor %}
                   </table>
                   
                 </div>
                 
+                <form action="{{ url_for('add_class_to_shoppingcart') }}" method="POST">
+                  <label for="section_id">Section ID:</label>
+                  <input id="section_id" name="section_id" value="{{ section_id }}">
+                  <button type="submit" class="text-titles">Add Class To Shopping Cart</button>
+                </form>
+
+
+
               </div>
             <!-- {% for result in search_output %}
               {% for item in result %}
@@ -104,3 +100,4 @@
 
 
 </html>
+
