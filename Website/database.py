@@ -1,4 +1,5 @@
 import mysql.connector
+
 mydb = mysql.connector.connect(
         host="localhost",
         user="project_user",
@@ -33,13 +34,15 @@ def search_courses(course_id=None, major=None, academic_standing=None, instructi
     return results
 
 def get_schedule(student_id):
-    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
+    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor, course.CourseName, course.Description " \
           "FROM section " \
           "JOIN enrollment ON section.SectionID = enrollment.SectionID " \
+          "JOIN course ON section.CourseID = course.CourseID " \
           "WHERE enrollment.StudentID = %s"
     mycursor.execute(sql, (student_id,))
     results = mycursor.fetchall()
     return results
+
 
 def register(first_name, last_name, email_address, major, academic_standing, password, username):
 
@@ -114,6 +117,7 @@ def drop_course(student_id, section_id):
     mydb.commit()
 
 def logint(username, password):
+    print('test')
     sql = "SELECT * FROM student WHERE username = %s AND password = %s"
     values = (username, password)
     mycursor.execute(sql, values)
@@ -132,6 +136,7 @@ def logint(username, password):
 #returns classes that studnet is enrolled in
 #schedule = get_schedule(1)
 #print(schedule)
+
 
 #register new student
 #register_output = register('test', 'test', 'test@gmail.com', 'Electrical Engineering', 'Junior', 'password','testing1234')
@@ -154,7 +159,7 @@ def logint(username, password):
 #drop_course(1, 1)
 
 #login returns ID if login correct, if login incorrect, return NONE
-print(logint('jp', 'passwor1d'))
+#print(logint('jp', 'passwor1d'))
 
 mycursor.close()
 mydb.close()
