@@ -120,7 +120,7 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    border: 3px solid #afaeae;
+    border: 3px solid rgb(44, 146, 13);
    /* padding: 200px; */
     width: 900px;
     
@@ -136,7 +136,7 @@ body{
 } */
 .body-text{
     width: 100%;
-    background-color: #afaeae;
+    background-color:rgb(44, 146, 13);
     color: white;
 }
 .body-layer2{
