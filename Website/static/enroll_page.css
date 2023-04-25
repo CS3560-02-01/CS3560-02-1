@@ -1,0 +1,60 @@
+.container{
+    padding: 3%;
+    display: flex;
+}
+
+body{
+    background-color: rgba(219, 219, 219, 0.932);    
+    margin: 0;
+    padding: 0;
+}
+
+.body-layer{
+    border-radius: 10px;
+    border: 3px solid #73AD21;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    width: 900px;
+    height: 600px;
+}
+.body-text{
+    background-color: #73AD21;
+    width: 100%;
+   
+
+}
+
+.table,th,td{
+    border: 2.5px solid;
+    align-items: center;
+}
+
+table{
+    padding-top: 5%;
+    padding-left: 5%;
+    position: static;
+
+}
+th,td{
+    padding: 20px;
+}
+
+tr:nth-child(odd){
+    background-color: #ddd;
+}
+
+tr:nth-child(even){
+    background-color: #fff;
+}
+
+.button{
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-left: 1070px;
+    margin-bottom: 10px;
+}
