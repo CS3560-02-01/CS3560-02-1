@@ -9,40 +9,40 @@
 
   </head>
   <body>
+
+    <!-- This is the start of the whole ribbon -->
       <div class = "container">
         <div class = "header-layer">
           <div class = "left-head">
-            <h class = "name-class">{% if user %}
+            <!-- this makes the person who logins name show up -->
+            <h class = "name-class">{% if user %}           
               <p>Welcome, {{ user[1] }}!</p>
               {% else %}
                   <p>Welcome!</p>
-              {% endif %}</h>
+              {% endif %}
+            </h>
           </div>
           <div class = "middle-head">
             <img class = "image" src="../static/Images/cpplogolight.jpg">
           </div>
+          <!-- This is part of the ribbon makes the buttons work to the right page -->
           <div class =  "right-head">
-            <!-- <form action="{{ url_for('home') }}" method="POST">
-              <span onclick="window.location.href = 'home.html';" class = "text-titles">Home</span>
-            </form> -->
             <form action="{{ url_for('home') }}" method="POST">
               <span onclick="window.location.href = 'home';" class="text-titles">Home</span>
             </form>
             <form action="{{ url_for('search') }}" method="POST">
               <span onclick="window.location.href = 'search';" class="text-titles">Search</span>
             </form>
-            
-            <!-- <form action="{{ url_for('search') }}" method="POST">
-              <span onclick="window.location.href = 'search';" class = "text-titles">Search</span>
-            </form> -->
-            <form action="{{ url_for('fifth') }}" method="POST">
-              <span onclick="window.location.href = 'fifth';" class = "text-titles">Enroll</span>
+            <form action="{{ url_for('enroll') }}" method="POST">
+              <span onclick="window.location.href = 'enroll';" class = "text-titles">Enroll</span>
             </form >
-            <button action = "{{ url_for('logout')}}" method = "POST" onclick = "window.location.href = './';" class = "button-design" type="submit">LOGOUT</button>
-            
+            <button action = "{{ url_for('logout')}}" method = "POST" onclick = "window.location.href = './';" class = "button-design" type="submit">LOGOUT</button>  
           </div>
         </div>
       </div>
+      <!-- This is the end of the whole ribbon -->
+
+      <!-- This layer is the body, it contains the two flexboxes wrapped in two containers -->
       <div class = "container">
         <div class = "body-layer">
           <h class ="body-text">SHOPPING CART</h>
@@ -59,25 +59,19 @@
                   <th>Units</th>
                   <th>Enrollment Status</th>
                 </tr>
+                <!-- This segment of the code make the cells of a table appear only if there is items in the shopping cart -->
                 {% for result in shopping_cart %}
-                  <tr>
+                <tr>
                     {% for item in result %}
                       <td>{{ item }}</td>
                     {% endfor %}
                     <td>(check mark if enrolled)</td>
-                  </tr>
+                </tr>
                 {% endfor %}
-              </table>
-              
+                <!-- This end of the segment -->
+              </table> 
             </div>
-            
           </div>
-          <!-- {% for result in shopping_cart %}
-              {% for item in result %}
-                  {{ item }} 
-              {% endfor %}
-              <br>
-          {% endfor %} -->
         </div>
         <div class = "body-layer2">
           <h class ="body-text">TOOL BAR</h>
@@ -86,9 +80,9 @@
             <input id="course_id" name="course_id" value="{{ course_id }}">
             <button type="submit" class="text-titles">Drop Class</button>
           </form>
-          
         </div>
       </div>
+      <!-- The second container where schedule is located -->
       <div class = "container">
         <div class = "body-layer">
           <h class ="body-text">SCHEDULE</h>
@@ -106,22 +100,23 @@
                   <th>Units</th>
                   <th>Enrollment Status</th>
                 </tr>
+          <!-- This segment of the code make the cells of a table appear only if there is items that have been enrolled -->
                 {% for result in enrolled_classes %}
-                  <tr>
+                <tr>
                     {% for item in result %}
                       <td>{{ item }}</td>
                     {% endfor %}
                     <td>(check mark if enrolled)</td>
-                  </tr>
+                </tr>
                 {% endfor %}
+                <!-- End of segment -->
               </table>
-              
             </div>
-            
           </div>
         </div>
-       
       </div>
+      <!-- end of body -->
   </body>
 </html>
+
 
