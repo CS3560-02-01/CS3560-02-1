@@ -143,7 +143,7 @@ def logint(username, password):
 
 
 #add class to cart
-#add_class_to_shoppingcart(section_id=6, student_id=1)
+#add_class_to_shoppingcart(section_id=3, student_id=1)
 
 #get shopping cart classes
 #shoppingcart = get_shoppingcart(1)
