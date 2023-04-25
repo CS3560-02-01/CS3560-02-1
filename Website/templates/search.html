@@ -16,7 +16,8 @@
                   <p>Welcome, {{ user[1] }}!</p>
                   {% else %}
                       <p>Welcome!</p>
-                  {% endif %}</h>
+                  {% endif %}
+                </h>
               </div>
               <div class = "middle-head">
                 <img class = "image" src="../static/Images/cpplogolight.jpg">
@@ -28,32 +29,12 @@
                 <form action="{{ url_for('search') }}" method="POST">
                   <span onclick="window.location.href = 'search';" class="text-titles">Search</span>
                 </form>
-                
-                <!-- <form action="{{ url_for('search') }}" method="POST">
-                  <span onclick="window.location.href = 'search';" class = "text-titles">Search</span>
-                </form> -->
-                <form action="{{ url_for('fifth') }}" method="POST">
-                  <span onclick="window.location.href = 'fifth';" class = "text-titles">Enroll</span>
+                <form action="{{ url_for('enroll') }}" method="POST">
+                  <span onclick="window.location.href = 'enroll';" class = "text-titles">Enroll</span>
                 </form >
                 <button action = "{{ url_for('logout')}}" method = "POST" onclick = "window.location.href = './';" class = "button-design" type="submit">LOGOUT</button>
-                
-
-
-                
-                <!-- <form>
-                  <span onclick="window.location.href = 'home.html';" class = "text-titles">Home</span>
-                </form>
-                <form>
-                  <span onclick="window.location.href = 'search.html';" class = "text-titles">Search</span>
-                </form>
-                <form>
-                  <span onclick="window.location.href = 'fifth.html';" class = "text-titles">Enroll</span>
-                </form>
-                <button onclick = "window.location.href = 'index.html';" class = "button-design" type="submit">LOGOUT</button>
-              </div> -->
-              
+              </div>
             </div>
-          </div>
         <div class = "rounded-corners-box">
             <div class= "search-header">
                 <p class = "search-header-text">Class Search</p>
@@ -62,9 +43,7 @@
             <div class="filter-text">
                 <label for="myInput" style="font-weight: bold; color: #555; margin-right: 10px;">Course ID:</label>
                 <input type="text" id="myInput" style="padding: 5px; border-radius: 3px; border: 1px solid #ccc;">
-              </div>
-
-
+            </div>
               <form method="POST" action="{{ url_for('search_classes') }}">
                 <div class="filter-text">
                   <label for="major" style="font-weight: bold; color: #555; margin-right: 10px;padding-right: 20px;">Major:</label>
@@ -103,41 +82,7 @@
                   <button class="soft-button" type="submit">Search</button>
                 </div>
               </form>
-            <!-- <div class="filter-text">
-                <label for="dropdown-menu" style="font-weight: bold; color: #555; margin-right: 10px;padding-right: 20px;">Major:</label>
-                <select id="dropdown-menu">
-                  <option>Select One</option>
-                  <option>Computer Science</option>
-                  <option>Mathematics</option>
-                  <option>Electrical Engineering</option>
-                </select>
-              </div>
-            <div class = "filter-text">
-                <label for="dropdown-menu" style="font-weight: bold; color: #555; margin-right: 10px;; padding-right: 20px;">Academic Standing:</label>
-                <select id="dropdown-menu">
-                    <option>Select One</option>
-                    <option>Freshman</option>
-                    <option>Sophomore</option>
-                    <option>Junior</option>
-                    <option>Senior</option>
-                </select>
-            </div>
-            <div class="filter-text">
-                <label for="myInput" style="font-weight: bold; color: #555; margin-right: 10px;">Professor:</label>
-                <input type="text" id="myInput" style="padding: 5px; border-radius: 3px; border: 1px solid #ccc;">
-              </div>            <div class = "filter-text">
-                <label for="dropdown-menu" style="font-weight: bold; color: #555; margin-right: 10px;; padding-right: 20px;">Instruction Mode:</label>
-                <select id="dropdown-menu">
-                    <option>Select One</option>
-                    <option>In-Person</option>
-                    <option>Hybrid</option>
-                    <option>Romote Synchronous</option>
-                    <option>Remote Asynchronous</option>
-                </select>
-            </div>
-            <div>
-                <button class="soft-button">Search</button>
-            </div> -->
+   
 
 
 
