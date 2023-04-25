@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel ="stylesheet" href = "../static/fifth_page.css">
+    <link rel ="stylesheet" href = "../static/enroll_page.css">
   </head>
   <body>
     <div class = "container">
@@ -31,16 +31,17 @@
           <form action="{{ url_for('search') }}" method="POST">
             <span onclick="window.location.href = 'search';" class="text-titles">Search</span>
           </form>
-          <form action="{{ url_for('fifth') }}" method="POST">
-            <span onclick="window.location.href = 'fifth';" class="text-titles">Enroll</span>
+          <form action="{{ url_for('enroll') }}" method="POST">
+            <span onclick="window.location.href = 'enroll';" class="text-titles">Enroll</span>
           </form >
           <button action="{{ url_for('logout') }}" method="POST" onclick="window.location.href='./';" class="button-design" type="submit">LOGOUT</button>
         </div>
       </div>
     </div>
-    <div class="container2">
-      <div class="box">
-          <h class="text">Shopping Cart</h>
+
+    <div class="container">
+      <div class="body-layer">
+        <h class="body-text">Shopping Cart</h>
           <div class = "top-one">
             <div class = "middle-one">
               <table style="text-align:center;">
@@ -82,23 +83,25 @@
             <button type="submit" class="text-titles">Drop Shopping Cart Class</button>
           </form>
         </div>
-          
-      <div class="seperation"></div>
-      <div class="box2">
-        <h class="text2">Enrolled Classes</h>
-        <div class = "top-one">
-          <div class = "middle-one">
-            <table style="text-align:center;">
-              <tr class="table-home">
-                <th>Course</th>
-                <th>Course-Name</th>
-                <th>Course-Section</th>
-                <th>Time</th>
-                <th>Room #</th>
-                <th>Professor</th>
-                <th>Units</th>
-                <th>Enrollment Status</th>
-              </tr>
+      </div>
+    </div>
+  </div>
+      <div class="container">
+        <div class="body-layer">
+          <h class="body-text">Enrolled Classes</h>
+            <div class = "top-one">
+              <div class = "middle-one">
+                <table style="text-align:center;">
+                  <tr class="table-home">
+                    <th>Course</th>
+                    <th>Course-Name</th>
+                    <th>Course-Section</th>
+                    <th>Time</th>
+                    <th>Room #</th>
+                    <th>Professor</th>
+                    <th>Units</th>
+                    <th>Enrollment Status</th>
+                  </tr>
               {% for result in enrolled_classes %}
                 <tr>
                   {% for item in result %}
