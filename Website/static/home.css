@@ -25,6 +25,7 @@ body{
     border-bottom-color: black;
     align-items: center;
     object-position: center;
+    z-index: 1;
 }
 .image{
     width: 50%;
