@@ -18,8 +18,7 @@ body{
     display: flex;
     align-items: center;
     margin: 0px;
-    width: 900px;
-    height: 600px;
+    overflow: auto;
 }
 .body-text{
     background-color: #73AD21;
@@ -53,12 +52,13 @@ tr:nth-child(even){
 }
 
 .enroll-button{
-    margin: 60px;
+    margin: 120px;
     display: flex;
     background-color: #3a3f3e;
     color: white;
     padding: 10px;
     cursor: pointer;
+    margin-bottom: -70px;
  
 }
 
