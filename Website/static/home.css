@@ -120,7 +120,7 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    border: 3px solid rgb(44, 146, 13);
+    border: 3px solid #73AD21;
    /* padding: 200px; */
     width: 900px;
     
@@ -136,8 +136,9 @@ body{
 } */
 .body-text{
     width: 100%;
-    background-color:rgb(44, 146, 13);
+    background-color:#73AD21;
     color: white;
+    font-size: 20px;
 }
 .body-layer2{
     background-color: white;
@@ -149,12 +150,12 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    border: 3px solid #afaeae;
+    border: 3px solid #73AD21;
    /* padding: 200px; */
     width: 200px;
     
-    height: 600px;
-    margin: 0px;
+    height: 200px;
+    margin-left: 10px;
     align-items: center;
 
 }

@@ -1,4 +1,5 @@
 .rounded-corners-box {
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -6,9 +7,10 @@
  /* padding: 200px; */
   width: 1000px;
   height: 750px;
-  margin: 0px;
+  /* margin: 0px; */
   align-items: center;
   align-items: center;
+  background-color: white;
 
 }
 
@@ -39,6 +41,7 @@ body {
   padding-left: 40px;
 }
 .filter-text {
+  background-color: white;
   padding: 30px;
   display: flex;
   flex-direction: row;
