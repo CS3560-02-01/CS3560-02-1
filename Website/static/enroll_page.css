@@ -24,6 +24,7 @@ body{
 .body-text{
     background-color: #73AD21;
     width: 100%;
+    font-size: 30px;
    
 
 }
@@ -51,10 +52,29 @@ tr:nth-child(even){
     background-color: #fff;
 }
 
-.button{
-    background-color: #fff;
+.enroll-button{
+    background-color: #3a3f3e;
+    color: white;
+    padding: 10px;
+    margin: 50px;
     border-radius: 5px;
-    margin-top: 50px;
-    margin-left: 1070px;
-    margin-bottom: 10px;
+    cursor: pointer;
+    width: 60px;
+    position: absolute;
+    margin-left: -50px;
+    bottom: 0px;
+}
+
+.drop-button{
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 450px;
+    bottom: 105px;
+    
+}
+
+.course-box{
+    margin: 200px;    
 }
