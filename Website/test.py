@@ -313,7 +313,7 @@ def home():
     mycursor = mydb.cursor()
 
     # get the shopping cart of the userID
-    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor, course.CourseName, course.Description " \
+    sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM shoppingcart " \
           "JOIN section ON shoppingcart.SectionID = section.SectionID " \
           "JOIN course ON section.CourseID = course.CourseID " \
@@ -323,7 +323,7 @@ def home():
     mycursor.execute(sql, values)
     results = mycursor.fetchall()
     # get the schedule for the userID
-    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor, course.CourseName, course.Description " \
+    sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM section " \
           "JOIN enrollment ON section.SectionID = enrollment.SectionID " \
           "JOIN course ON section.CourseID = course.CourseID " \
@@ -356,7 +356,7 @@ def enroll():
         )
     # get shopping cart of user
     mycursor = mydb.cursor()
-    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor, course.CourseName, course.Description " \
+    sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM shoppingcart " \
           "JOIN section ON shoppingcart.SectionID = section.SectionID " \
           "JOIN course ON section.CourseID = course.CourseID " \
@@ -366,7 +366,7 @@ def enroll():
     mycursor.execute(sql, values)
     cart = mycursor.fetchall()
     # get schedule of user
-    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor, course.CourseName, course.Description " \
+    sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM section " \
           "JOIN enrollment ON section.SectionID = enrollment.SectionID " \
           "JOIN course ON section.CourseID = course.CourseID " \

@@ -34,7 +34,7 @@ def search_courses(course_id=None, major=None, academic_standing=None, instructi
     return results
 
 def get_schedule(student_id):
-    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor, course.CourseName, course.Description " \
+    sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM section " \
           "JOIN enrollment ON section.SectionID = enrollment.SectionID " \
           "JOIN course ON section.CourseID = course.CourseID " \
@@ -63,7 +63,7 @@ def add_class_to_shoppingcart (section_id, student_id):
 
 def get_shoppingcart(student_id):
 
-    sql = "SELECT section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor, course.CourseName, course.Description " \
+    sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM shoppingcart " \
           "JOIN section ON shoppingcart.SectionID = section.SectionID " \
           "JOIN course ON section.CourseID = course.CourseID " \
