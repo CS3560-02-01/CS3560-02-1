@@ -29,7 +29,6 @@
 
 .login_button{
     border-radius: 20%;
-    
 
 
 }
@@ -53,7 +52,7 @@
 
 }
 .button-properties{
-    flex: 1;
+    flex: 100;
     padding: 5%;
     padding-left: 45%;
     object-position: center;
