@@ -71,15 +71,11 @@ body{
     border: none;
     cursor: pointer;
     width: 30%;
-
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
-
 
 .button-design::before{
     content: '';
