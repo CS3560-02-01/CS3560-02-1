@@ -45,46 +45,6 @@
       <!-- This layer is the body, it contains the two flexboxes wrapped in two containers -->
       <div class = "container">
         <div class = "body-layer">
-          <h class ="body-text">Shopping Cart</h>
-          <div class = "top-one">
-            <div class = "middle-one">
-              <table style="text-align:center;">
-                <tr class="table-home">
-                  <th>Course</th>
-                  <th>Course-Name</th>
-                  <th>Course-Section</th>
-                  <th>Time</th>
-                  <th>Room #</th>
-                  <th>Professor</th>
-                  <th>Units</th>
-                  <th>Enrollment Status</th>
-                </tr>
-                <!-- This segment of the code make the cells of a table appear only if there is items in the shopping cart -->
-                {% for result in shopping_cart %}
-                <tr>
-                    {% for item in result %}
-                      <td>{{ item }}</td>
-                    {% endfor %}
-                    <td>(check mark if enrolled)</td>
-                </tr>
-                {% endfor %}
-                <!-- This end of the segment -->
-              </table> 
-            </div>
-          </div>
-        </div>
-        <div class = "body-layer2">
-          <h class ="body-text">Drop Menu</h>
-          <form action="{{ url_for('drop_class') }}" method="POST">
-            <label for="course_id">Course ID:</label>
-            <input id="course_id" name="course_id" value="{{ course_id }}">
-            <button type="submit" class="text-titles">Drop Class</button>
-          </form>
-        </div>
-      </div>
-      <!-- The second container where schedule is located -->
-      <div class = "container">
-        <div class = "body-layer">
           <h class ="body-text">Schedule</h>
           
           <div class = "top-one">
@@ -114,6 +74,47 @@
             </div>
           </div>
         </div>
+        <div class = "body-layer2">
+          <h class ="body-text">Drop Menu</h>
+          <form action="{{ url_for('drop_class') }}" method="POST">
+            <label for="course_id">Course ID:</label>
+            <input id="course_id" name="course_id" value="{{ course_id }}">
+            <button type="submit" class="text-titles">Drop Class</button>
+          </form>
+        </div>
+      </div>
+        <!-- The second container where shoping cart is located -->
+      <div class = "container">
+        <div class = "body-layer">
+          <h class ="body-text">Shopping Cart</h>
+          <div class = "top-one">
+            <div class = "middle-one">
+              <table style="text-align:center;">
+                <tr class="table-home">
+                  <th>Course</th>
+                  <th>Course-Name</th>
+                  <th>Course-Section</th>
+                  <th>Time</th>
+                  <th>Room #</th>
+                  <th>Professor</th>
+                  <th>Units</th>
+                  <th>Enrollment Status</th>
+                </tr>
+                <!-- This segment of the code make the cells of a table appear only if there is items in the shopping cart -->
+                {% for result in shopping_cart %}
+                <tr>
+                    {% for item in result %}
+                      <td>{{ item }}</td>
+                    {% endfor %}
+                    <td>(check mark if enrolled)</td>
+                </tr>
+                {% endfor %}
+                <!-- This end of the segment -->
+              </table> 
+            </div>
+          </div>
+        </div>
+        
       </div>
       <!-- end of body -->
   </body>
