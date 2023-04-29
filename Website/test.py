@@ -294,7 +294,7 @@ def enroll_in_classes():
     mydb.commit()
     mycursor.close()
     mydb.close()
-    return render_template('enroll.html')
+    return render_template('enroll_confirm.html')
 
 # logout user and redirect them to index page
 @app.route('/logout', methods =['GET', 'POST'])
@@ -376,7 +376,26 @@ def enroll():
 
     return render_template('enroll.html', shopping_cart=cart, enrolled_classes=enrolled)
 
-
+#redirect them to the enroll_confirm page
+@app.route('/enroll_confrim', methods =['GET', 'POST'])
+def enroll_confirm():
+    mydb = mysql.connector.connect(
+            host="localhost",
+            user="project_user",
+            password="password!@#123",
+            database="enrollmentsystem"
+        )
+    mycursor = mydb.cursor()
+    sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
+          "FROM shoppingcart " \
+          "JOIN section ON shoppingcart.SectionID = section.SectionID " \
+          "JOIN course ON section.CourseID = course.CourseID " \
+          "WHERE shoppingcart.StudentID = %s"
+    values = (session['user_id'],)
+    
+    mycursor.execute(sql, values)
+    cart = mycursor.fetchall()
+    return render_template('enroll_confirm.html',shopping_cart=cart) 
 
 if __name__ == '__main__':
     app.run(port=7000, debug=True) 

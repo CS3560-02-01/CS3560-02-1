@@ -49,7 +49,7 @@ tr:nth-child(even){
 }
 
 .enroll-button{
-    margin: 120px;
+    margin: 20px;
     transition-duration: 0.4s;
     display: flex;
     color: black;
@@ -65,7 +65,6 @@ tr:nth-child(even){
     background-color: #73AD21; 
     color: black;
     box-shadow: 0 14px 18px 0 rgba(0,0,0,0.24), 0 18px 48px 0 rgba(0,0,0,0.19);
-
   }
 
 .drop-button{
@@ -85,4 +84,57 @@ tr:nth-child(even){
 }
 .course-box{
     display: flex;
+    margin-top: 75px;
+}
+
+.confirm-button{
+    margin-top: 50px;
+    display: flex;
+    font-size: 17px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    transition-duration: 0.6s;
+    border: bold rgb(1, 49, 13);
+    border-radius: 4px;
+}
+
+.confirm-button:hover {
+    background-color: #73AD21; 
+    color: black;
+    box-shadow: 0 14px 18px 0 rgba(0,0,0,0.24), 0 18px 48px 0 rgba(0,0,0,0.19);
+}
+
+.go-back{
+    margin-right: 700px;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    transition-duration: 0.6s;
+    border: bold rgb(2, 74, 27);
+    border-radius: 6px;
+}
+
+.go-back:hover{
+    background-color: rgb(75, 77, 73); 
+    color: black;
+}
+
+.size{
+    padding: 3px;
+    background-color: rgb(255, 255, 255);
+    border: 4px solid #73AD21;
+    border-radius: 3px;
+    display: flex;
+
+}
+.layer2{
+    border-radius: 10px;
+    border: 3px solid #73AD21;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    flex: 2;
+    display: flex;
+    min-height: 250px;
+    align-items: center;
+    margin: 0px;
+    overflow: auto;
 }

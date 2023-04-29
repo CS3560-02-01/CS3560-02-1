@@ -74,9 +74,7 @@
               {% endfor %}
               <br>
           {% endfor %} -->
-          <form action="{{ url_for('enroll_in_classes') }}" method="POST">
-            <button class="enroll-button" type="submit">Enroll</button>
-          </form>  
+ 
           <form action="{{ url_for('drop_shoppingcart_class') }}" method="POST">
             <div class = "course-box">
             <label for="course_id">Course ID: </label>
@@ -84,6 +82,9 @@
             </div>
             <button type="submit" class="drop-button">Drop Shopping Cart Class</button>
           </form>
+          <form action="{{ url_for('enroll_confirm') }}" method="POST">
+            <button class="enroll-button" type="submit">Enroll</button>
+          </form>  
         </div>
       </div>
     </div>
