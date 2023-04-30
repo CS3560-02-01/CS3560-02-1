@@ -15,11 +15,7 @@
     <div class = "container">
       <div class = "header-layer">
         <div class = "left-head">
-          <h class = "name-class">{% if user %}
-            <p>Welcome, {{ user[1] }}!</p>
-          {% else %}
-            <p>Welcome!</p>
-          {% endif %}</h>
+          <h class = "name-class"></h>
         </div>
         <div class = "middle-head">
           <img class = "image" src="../static/Images/cpplogolight.jpg">
@@ -103,14 +99,14 @@
                     <th>Room #</th>
                     <th>Professor</th>
                     <th>Units</th>
-                    <th>Enrollment Status</th>
+                    
                   </tr>
               {% for result in enrolled_classes %}
                 <tr>
                   {% for item in result %}
                     <td>{{ item }}</td>
                   {% endfor %}
-                  <td>(check mark if enrolled)</td>
+                  
                 </tr>
               {% endfor %}
             </table>
