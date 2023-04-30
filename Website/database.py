@@ -8,6 +8,7 @@ mydb = mysql.connector.connect(
     )
 mycursor = mydb.cursor()
 
+# takes in the parameters andreturns a list of course sections that match the specified criteria
 def search_courses(course_id=None, major=None, academic_standing=None, instruction_mode=None, professor=None):
     sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM course " \
@@ -33,6 +34,7 @@ def search_courses(course_id=None, major=None, academic_standing=None, instructi
     results = mycursor.fetchall()
     return results
 
+# takes in a student ID and returns a list of course sections that the student is enrolled in.
 def get_schedule(student_id):
     sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM section " \
@@ -43,7 +45,7 @@ def get_schedule(student_id):
     results = mycursor.fetchall()
     return results
 
-
+# takes in several parameters for a new student, creates a new student record in the database, and commits the transaction.
 def register(first_name, last_name, email_address, major, academic_standing, password, username):
 
 
@@ -54,6 +56,7 @@ def register(first_name, last_name, email_address, major, academic_standing, pas
     mycursor.execute(sql, values)
     mydb.commit()
 
+#  takes in a section ID and a student ID, adds the specified course section to the student's shopping cart, and commits the transaction.
 def add_class_to_shoppingcart (section_id, student_id):
 
     sql = "INSERT INTO shoppingcart (SectionID, StudentID) VALUES (%s, %s)"
@@ -61,6 +64,7 @@ def add_class_to_shoppingcart (section_id, student_id):
     mycursor.execute(sql, values)
     mydb.commit()
 
+# takes in a student ID, returns a list of course sections in the student's shopping cart.
 def get_shoppingcart(student_id):
 
     sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
@@ -73,6 +77,7 @@ def get_shoppingcart(student_id):
     results = mycursor.fetchall()
     return results
 
+# takes in a section ID and a student ID, removes the specified course section from the student's shopping cart, and commits the transaction.
 def remove_class_from_shoppingcart(section_id, student_id):
     sql = "DELETE FROM shoppingcart WHERE SectionID = %s AND StudentID = %s"
     values = (section_id, student_id)
@@ -83,6 +88,8 @@ def remove_class_from_shoppingcart(section_id, student_id):
     mycursor.execute(sql, values)
     mydb.commit()
 
+# takes in a student ID and an optional grade parameter
+# enrolls the student in all the course sections in their shopping cart, and commits the transaction.
 def enroll_in_shoppingcart_classes(studentID, grade='A+'):
     sql = "SELECT sectionID FROM shoppingcart WHERE studentID = %s"
     values = (studentID,)
@@ -109,13 +116,14 @@ def enroll_in_shoppingcart_classes(studentID, grade='A+'):
     mycursor.execute(sql, values)
     mydb.commit()
 
-
+# deletes a row from the enrollment table that matches the given student ID and section ID. 
 def drop_course(student_id, section_id):
     sql = "DELETE FROM enrollment WHERE studentID = %s AND sectionID = %s"
     values = (student_id, section_id)
     mycursor.execute(sql, values)
     mydb.commit()
 
+# checks whether the provided username and password match a row in the student table.
 def logint(username, password):
     print('test')
     sql = "SELECT * FROM student WHERE username = %s AND password = %s"
