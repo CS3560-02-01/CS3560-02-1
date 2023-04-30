@@ -41,30 +41,43 @@ class classCourse:
     
 class courseSection:
     
+    # gets/sets course ID
     def getCourseID():
         return 0
     def setCourseID():
         return 0
+    
+    # gets/sets capacity
     def getCapacity():
         return 0
     def setCapacity():
         return 0
+    
+    # gets/sets course time
     def getCourseTime():
         return 0
     def setCourseTime():
         return 0
+    
+    # gets/sets professor ID
     def getProfessorID():
         return 0
     def setProfessorID():
         return 0
+    
+    # gets/sets course room
     def getCourseRoom():
         return 0
     def setCourseRoom():
         return 0
+    
+    # adds/removes student
     def addStudent():
         return 0
     def removeStudent():
         return 0
+    
+    # adds/removes student from waitlist
     def addStudentToWaitlist():
         return 0
     def removeStudentFromWaitlist():
@@ -87,9 +100,10 @@ class Professor:
     # return professor ID for a specific professor
     def getProfessorID():
         return 0
-    
+    # return details about that specific professor 
     def getProfessorDetails():
         return 0
+    # return sections in which the professor will be taking classes in
     def getProfessorSection():
         return 0
     
