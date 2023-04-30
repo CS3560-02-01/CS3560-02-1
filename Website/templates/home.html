@@ -58,7 +58,7 @@
                   <th>Room #</th>
                   <th>Professor</th>
                   <th>Units</th>
-                  <th>Enrollment Status</th>
+                  
                 </tr>
           <!-- This segment of the code make the cells of a table appear only if there is items that have been enrolled -->
                 {% for result in enrolled_classes %}
@@ -66,7 +66,7 @@
                     {% for item in result %}
                       <td>{{ item }}</td>
                     {% endfor %}
-                    <td>(check mark if enrolled)</td>
+                    
                 </tr>
                 {% endfor %}
                 <!-- End of segment -->
