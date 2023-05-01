@@ -58,18 +58,21 @@
                   <th>Room #</th>
                   <th>Professor</th>
                   <th>Units</th>
-                  
+                  <th>Roster</th>
                 </tr>
-          <!-- This segment of the code make the cells of a table appear only if there is items that have been enrolled -->
                 {% for result in enrolled_classes %}
                 <tr>
-                    {% for item in result %}
-                      <td>{{ item }}</td>
-                    {% endfor %}
-                    
+                  {% for item in result %}
+                  <td>{{ item }}</td>
+                  {% endfor %}
+                  <td>
+                    <form method="POST" action="{{ url_for('home') }}">
+                      <input type="hidden" name="sectionID" value="{{ result[2] }}">
+                      <input type="submit" value="View">
+                    </form>
+                  </td>
                 </tr>
                 {% endfor %}
-                <!-- End of segment -->
               </table>
             </div>
           </div>
@@ -77,8 +80,8 @@
         <div class = "body-layer2">
           <h class ="body-text">Drop Menu</h>
           <form action="{{ url_for('drop_class') }}" method="POST">
-            <label for="course_id">Course ID:</label>
-            <input id="course_id" name="course_id" value="{{ course_id }}">
+            <label for="course_id">Course-Section ID:</label>
+            <input id="section_id" name="section_id" value="{{ section_id }}">
             <button type="submit" class="text-titles">Drop Class</button>
           </form>
         </div>

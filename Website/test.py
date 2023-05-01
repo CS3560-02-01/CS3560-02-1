@@ -122,7 +122,7 @@ def search_classes():
     academic_standing = request.form['academic_standing']
     professor = request.form['professor']
     instruction_mode = request.form['instruction_mode']
-    course_id = request.form.get('course_id')
+    course_id = request.form['course_id']
     mydb = mysql.connector.connect(
             host="localhost",
             user="project_user",
@@ -155,8 +155,9 @@ def search_classes():
     results = mycursor.fetchall()
     mycursor.close()
     mydb.close()
-    # reterns the results to the searchresults.html page with the search_output being the results
-    return render_template('searchresults.html', search_output = results)
+    # returns the results to the searchresults.html page with the search_output being the results
+    return render_template('searchresults.html', search_output=results)
+
 
 
 # method called to drop a enrolled class
@@ -170,14 +171,23 @@ def drop_class():
     )
     mycursor = mydb.cursor()
     # declares the course_id variable form the form to be used later
-    course_id = request.form['course_id']
-    sql = "DELETE FROM enrollment WHERE studentID = %s AND courseID = %s"
+    section_id = request.form['section_id']
 
-    values = (session['user_id'], course_id)
+    sql = "SELECT * FROM enrollment WHERE sectionID = %s AND studentID = %s"
+    values = (section_id, session['user_id'])
     mycursor.execute(sql, values)
-    mydb.commit()
+    result = mycursor.fetchone()
+
+    if result is not None:
+        # Delete the enrollment row
+        sql = "DELETE FROM enrollment WHERE studentID = %s AND sectionID = %s"
+        values = (session['user_id'], section_id)
+        mycursor.execute(sql, values)
+        mydb.commit()
+
     mycursor.close()
     mydb.close()
+
     # direct user back to home page
     return redirect(url_for('home'))
 
@@ -280,8 +290,8 @@ def enroll_in_classes():
         courses.append(result)
     # Check if student is enrolled in class first, if not enroll in class 
     for course in courses:
-        sql = "SELECT * FROM enrollment WHERE courseID = %s AND sectionID = %s AND studentID = %s"
-        values = (course[0], course[1], session['user_id'])
+        sql = "SELECT * FROM enrollment WHERE courseID =  %s AND studentID = %s"
+        values = (course[0], session['user_id'])
         mycursor.execute(sql, values)
         result = mycursor.fetchone()
         if result is None:
@@ -322,6 +332,7 @@ def home():
     
     mycursor.execute(sql, values)
     results = mycursor.fetchall()
+
     # get the schedule for the userID
     sql = "SELECT course.CourseName, course.Description, section.SectionID, section.Schedule, section.RoomNumber, section.InstructionMode, section.Professor " \
           "FROM section " \
@@ -330,9 +341,33 @@ def home():
           "WHERE enrollment.StudentID = %s"
     mycursor.execute(sql, (session['user_id'],))
     enrolled = mycursor.fetchall()
-    print(enrolled)
-    return render_template('home.html', user=g.user, shopping_cart=results, enrolled_classes=enrolled)
 
+    # handle button click to view roster
+    if request.method == 'POST':
+        sectionID = request.form['sectionID']
+
+
+        
+        # Get the student IDs enrolled in the section
+        sql = "SELECT studentID FROM enrollment WHERE sectionID = %s"
+        values = (sectionID,)
+        mycursor.execute(sql, values)
+        studentIDs = [row[0] for row in mycursor.fetchall()]
+
+        # Get the first name and last name of the students
+        students = []
+        for studentID in studentIDs:
+            sql = "SELECT firstname, lastname FROM student WHERE studentID = %s"
+            values = (studentID,)
+            mycursor.execute(sql, values)
+            result = mycursor.fetchone()
+            if result:
+                students.append(result)
+
+
+        return render_template('roster.html', students=students)
+
+    return render_template('home.html', user=g.user, shopping_cart=results, enrolled_classes=enrolled)
 # redirect user to search.html
 @app.route('/search', methods =['GET', 'POST'])
 def search():
@@ -396,6 +431,9 @@ def enroll_confirm():
     mycursor.execute(sql, values)
     cart = mycursor.fetchall()
     return render_template('enroll_confirm.html',shopping_cart=cart) 
+
+
+
 
 if __name__ == '__main__':
     app.run(port=7200, debug=True) 

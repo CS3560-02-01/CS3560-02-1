@@ -36,13 +36,19 @@
                 <p class = "search-header-text">Class Search</p>
             </div>
       
-            <div class="filter-text">
+            <!-- <div class="filter-text">
                 <label for="myInput" style="font-weight: bold; color: #555; margin-left: -160px;">Course ID:</label>
                 <input type="text" id="myInput" style="padding: 5px; border-radius: 3px; border: 1px solid #ccc;">
-            </div>
+            </div> -->
+
+            
               <form method="POST" action="{{ url_for('search_classes') }}">
                 <div class="filter-text">
-                  <label for="major" style="font-weight: bold; color: #555; margin-right: 10px;padding-right: 20px;">Major:</label>
+                  <label for="course_id" style="font-weight: bold; color: #555; margin-right: 10px;">CourseID:</label>
+                  <input type="text" id="course_id" name="course_id" style="padding: 5px; border-radius: 3px; border: 1px solid #ccc;">
+                </div>
+                <div class="filter-text">
+                  <labelx for="major" style="font-weight: bold; color: #555; margin-right: 10px;padding-right: 20px;">Major:</label>
                   <select id="major" name="major">
                     <option>Select One</option>
                     <option>Computer Science</option>

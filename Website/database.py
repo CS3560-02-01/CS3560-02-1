@@ -136,10 +136,36 @@ def logint(username, password):
     else:
         # user is not authenticated, return None
         return None
+    
+
+def get_students_in_section(sectionID):
+
+    # Get the student IDs enrolled in the section
+    sql = "SELECT studentID FROM enrollment WHERE sectionID = %s"
+    values = (sectionID,)
+    mycursor.execute(sql, values)
+    studentIDs = [row[0] for row in mycursor.fetchall()]
+
+    # Get the first name and last name of the students
+    students = []
+    for studentID in studentIDs:
+        sql = "SELECT firstname, lastname FROM student WHERE studentID = %s"
+        values = (studentID,)
+        mycursor.execute(sql, values)
+        result = mycursor.fetchone()
+        if result:
+            students.append(result)
+
+
+
+    return students
+
+#class roster
+#print(get_students_in_section(1))
 
 #search function calling (all parameters dont need to be declared, default NONE)
-#searchclass = search_courses(course_id = '1', major = 'Computer Science', academic_standing = "Sophomore", professor = "John Smith", instruction_mode ='In-Person')
-#print(searchclass)
+searchclass = search_courses(course_id = '1', major = 'Computer Science', academic_standing = "Sophomore", professor = "John Smith", instruction_mode ='In-Person')
+print(searchclass)
 
 #returns classes that studnet is enrolled in
 #schedule = get_schedule(1)

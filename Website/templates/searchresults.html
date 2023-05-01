@@ -50,7 +50,7 @@
                     <tr class="table-home">
                       <th>Course</th>
                       <th>Course-Name</th>
-                      <th>Course-ID</th>
+                      <th>Section-ID</th>
                       <th>Time</th>
                       <th>Room #</th>
                       <th>Professor</th>
@@ -69,7 +69,7 @@
                 </div>
                 
                 <form action="{{ url_for('add_class_to_shoppingcart') }}" method="POST">
-                  <label for="section_id">Course ID:</label>
+                  <label for="section_id">Section ID:</label>
                   <input id="section_id" name="section_id" value="{{ section_id }}">
                   <button type="submit" class="text-titles">Add Class To Shopping Cart</button>
                 </form>
