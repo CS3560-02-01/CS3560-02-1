@@ -94,6 +94,7 @@ select option {
   font-size: 16px;
   padding: 10px 20px;
   margin-top: 50px;
+  margin-left: 180px;
 }
 
 .soft-button:hover {
