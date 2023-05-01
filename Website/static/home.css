@@ -148,7 +148,7 @@ body{
     
     /* height: 600px; */
     margin: 0px;
-    align-items: center;
+    text-align: center;
 }
 /* .body-layer{
     display: flex;
@@ -161,6 +161,7 @@ body{
     background-color:#73AD21;
     color: white;
     font-size: 20px;
+    text-align: center;
 }
 .body-layer2{
     background-color: white;
